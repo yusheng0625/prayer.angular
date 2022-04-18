@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center align-items-center w-100 h-100 login-container">
+    <div class="col-xl-4 col-md-6 col-12">
+        <div class="card border-0 box-shadow rounded-0">
+            <div class="card-header d-flex justify-content-center align-items-center border-0 box-shadow">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="card-body text-center pb-1">
+                <h2>Contact Us</h2>
+
+                <form *ngIf="!bSent" [formGroup]="contactusForm" (ngSubmit)="onSubmit(contactusForm.value)" class="text-left mt-4">
+                    <div class="form-group col-md-12">
+                        <label class="form-control-label">Name</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                        class="fa fa-user"></i></span></div>
+                            <input formControlName="name" class="form-control  validation-field" type="text">
+                        </div>
+                        <small class="text-danger" *ngIf="contactusForm.get('name').touched && contactusForm.get('name').hasError('required')">Name is required</small>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-control-label">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i
+                                        class="fa fa-envelope"></i></span></div>
+                            <input formControlName="email" class="form-control validation-field" type="text">
+                        </div>
+                        <small class="text-danger" *ngIf="contactusForm.get('email').touched && contactusForm.get('email').hasError('required')">Email is required</small>                              
+                        <small class="text-danger" *ngIf="contactusForm.get('email').touched && contactusForm.get('email').hasError('email')">Invalid email address</small>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" formControlName="isMember" class="custom-control-input"
+                                id="ismember-checkbox">
+                            <label class="custom-control-label" for="ismember-checkbox">Are You A Current
+                                Member?.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label class="form-control-label">Contents</label>
+                        <textarea rows="8" formControlName="content" class="form-control validation-field"></textarea>
+                        <small class="text-danger" *ngIf="contactusForm.get('content').touched && contactusForm.get('content').hasError('required')">Contents are required</small>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <button [disabled]="!contactusForm.valid" class="btn btn-block btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+
+                <div *ngIf="bSent" class="alert alert-info alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" routerLink="/">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    We just received your email and will reply to you soon.
+                </div>     
+
+            </div>
+
+        </div>
+    </div>
+</div>

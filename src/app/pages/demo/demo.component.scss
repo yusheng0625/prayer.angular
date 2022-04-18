@@ -1,0 +1,164 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.full-grown {
+    font-size: 24px;
+    line-height: 1.0;
+    // text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;   
+    background: #3c333359;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}                
+
+.prayer-say {
+    font-size: 22px;
+    line-height: 1.2;
+    // text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin: 0;
+    color: white;
+
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;   
+    background: #3c333359;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}                
+
+.praysay-list-item{
+    border: 1px solid #80808042;
+    cursor: pointer;
+}
+.praysay-list-item-active{
+    border: 1px solid blue;
+    cursor: pointer;
+    background-color: #51b8c540;
+}
+
+
+@media (min-width: 768px){
+    .bkg-prayer{
+        min-height: calc(100vh - 28px); 
+        background-size: cover; 
+        background-image: url(../../../assets/img/demo/class1/bkg.png);
+    }
+    
+    .image-bible{
+        height: 200px;
+    }
+    .image-bible-container{
+        position: absolute;
+        bottom: 0px;
+    }
+    .image-tree-container{
+        position: absolute;
+        bottom: 20px;
+    }
+    
+    .full-grown {
+        font-size: 24px;
+        line-height: 1.0;
+        // text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 800;
+        margin: 0;
+        color: white;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;   
+        background: #3c333359;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }                
+    
+    .prayer-say {
+        font-size: 22px;
+        line-height: 1.2;
+        // text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 900;
+        margin: 0;
+        color: white;
+    
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;   
+        background: #3c333359;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }                
+}
+
+@media (max-width: 768px){
+    .bkg-prayer{
+        min-height: calc(100vh - 28px); 
+        background-size: cover; 
+        background-image: url(../../../assets/img/demo/class1/bkg1.png);
+    }
+
+    .image-bible{
+        height: 98px;
+    }
+    .image-bible-container{
+        position: absolute;
+        bottom: 10px;
+    }
+    .image-tree-container{
+        position: absolute;
+        bottom: 16px;
+    }
+
+
+    .full-grown {
+        font-size: 17px;
+        line-height: 1.0;
+        // text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 800;
+        margin: 0;
+        color: white;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;   
+        background: #3c333359;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }                
+    
+    .prayer-say {
+        font-size: 16px;
+        line-height: 1.1;
+        letter-spacing: 2px;
+        font-weight: 800;
+        // text-transform: uppercase;
+        margin: 0;
+        color: white;
+    
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;   
+        background: #3c333359;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }                
+    
+}

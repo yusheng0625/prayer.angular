@@ -1,0 +1,41 @@
+<h4 class="ml-4 mt-4">User Management</h4>
+
+<div class="row p-4">
+    <div class="col-md-12">
+        <div class="table-responsive bg-white box-shadow">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th> 
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created at</th>
+                        <th>Total Prayer</th>
+                        <th>Full Grown</th>
+                        <th>In Growing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <td class="align-middle text-truncate">{{user.Id}}</td>
+                        <td class="align-middle text-truncate">{{user.name}}</td>
+                        <td class="align-middle text-truncate">{{user.email}}</td>
+                        <td class="align-middle text-truncate">{{user.created_at}}</td>
+                        <td class="align-middle text-truncate">{{user.total_prayers}}</td>
+                        <td class="align-middle text-truncate">{{user.full_growns}}</td>
+                        <td class="align-middle text-truncate">{{user.in_growings}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white text-center">
+            <pagination-controls autoHide="true" (pageChange)="p = $event" maxSize="3"></pagination-controls>
+        </div>        
+    </div>
+</div>
+

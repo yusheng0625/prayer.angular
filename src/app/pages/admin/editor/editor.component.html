@@ -1,0 +1,90 @@
+<h4 class="ml-4 mt-4">Images</h4>
+<div class="card m-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="table-responsive bg-white box-shadow">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th> 
+                                <th>Link</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let image of images | paginate: { itemsPerPage: 8, currentPage: p }">
+                                <td class="align-middle text-truncate">{{image.Id}}</td>
+                                <td class="align-middle text-truncate">{{image.link}}</td>
+                                <td class="align-middle">
+                                    <a href="javascript:" (click)="onView(image.Id)"><i class="fa fa-eye mr-2 text-info"></i></a>
+                                    <a href="javascript:" (click)="onRemove(image.Id)"><i class="fa fa-trash mr-2 text-danger"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="file" (change)="fileChange(input)" 
+                    #input class="img-upload-btn" 
+                    accept="image/x-png,image/gif,image/jpeg"/>
+                <button class="btn btn-info btn-block rounded-0" type="button">
+                    <span *ngIf="!image"><i class="fa fa-upload"></i> Select Image... </span>
+                    <span *ngIf="image"><i class="fa fa-refresh"></i> Change Image... </span>
+                </button>
+
+                <div class="image-wrapper">
+                    <img [attr.src]="link" *ngIf="link" width="100%">
+                    <img src="assets/img/app/no-image.png" *ngIf="link==''" width="100%">
+                </div>
+                <button *ngIf="image" class="btn btn-info btn-block rounded-0" type="button" (click)="onAddNew()">
+                    <span><i class="fa fa-refresh"></i> Upload image </span>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-white text-center">
+                    <pagination-controls autoHide="true" (pageChange)="p = $event" maxSize="3"></pagination-controls>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h4 class="ml-4 mt-4">Home Editing</h4>
+<div class="p-4">
+    <ckeditor [(ngModel)]="top" [config]="config0" (change)="onChangeTop($event)" debounce="100">
+    </ckeditor>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <ckeditor [(ngModel)]="left" [config]="config1" (change)="onChangeLeft($event)"
+                debounce="200">
+            </ckeditor>        
+        </div>
+        <div class="col-md-6">
+            <ckeditor [(ngModel)]="right" [config]="config1" (change)="onChangeRight($event)"
+                debounce="200">
+            </ckeditor>        
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center w-100 h-100 mt-4 mb-4">
+        <div class="col-xl-4 col-md-6 col-10">
+            <button class="btn btn-primary btn-block" style="max-width: calc(100vw - 20px);"><h4>Send A Prayer Seed to Jesus</h4></button>
+        </div>
+    </div>    
+    
+    <ckeditor [(ngModel)]="foot" [config]="config2" (change)="onChangeFoot($event)" debounce="100">
+    </ckeditor>
+
+    <div class="d-flex justify-content-center align-items-center w-100 h-100 mt-4 mb-4">
+        <div class="col-xl-4 col-md-6 col-10">
+            <button class="btn btn-info btn-block" style="max-width: calc(100vw - 20px);" (click)="onUpdate()"><h4>Update Contents</h4></button>
+        </div>
+    </div>
+</div>

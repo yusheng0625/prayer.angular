@@ -1,0 +1,41 @@
+<!-- <nav class="navbar box-shadow app-header" [class.fixed-top]="settings.theme.navbarIsFixed" [class.logo-visible]="showInfoContent"> -->
+<nav class="navbar box-shadow app-header" [class.logo-visible]="showInfoContent">
+    <div class="d-flex flex-column w-100">
+
+        <div class="d-flex justify-content-start align-items-center top-navbar" style="background-image: linear-gradient(to right, #f0f6f9, #87cefa);">
+
+            <a class="logo" routerLink="/" (click)="closeSubMenus()">
+                <span><img src="../../../../assets/img/app/logo.png" class="logo-image" /></span>
+            </a>
+
+            <div class="top-rigth-icons ml-auto">
+                <app-horizontal-menu *ngIf="logined && bAdmin"  [menuItems]="menuItemsAdmin"></app-horizontal-menu>
+
+                <app-horizontal-menu *ngIf="logined && showHorizontalMenu && !bAdmin"  [menuItems]="menuItemsLogined"></app-horizontal-menu>
+                <app-horizontal-menu *ngIf="!logined && showHorizontalMenu && !bAdmin"  [menuItems]="menuItemsLogoff"></app-horizontal-menu>                
+                    <!-- <app-horizontal-menu *ngIf="showHorizontalMenu"  [menuItems]="menuItems"></app-horizontal-menu>        
+                    <app-vertical-menu *ngIf="!showHorizontalMenu"  [menuItems]="menuItems"></app-vertical-menu> -->
+
+                <span *ngIf="!showHorizontalMenu && showFull && !bAdmin" class="navbar-text menu-icon transition ml-3 mr-3" [ngClass]="{'open': settings.theme.showMenu}"
+                    (click)="settings.theme.showMenu = !settings.theme.showMenu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </span>
+
+                <span *ngIf="!showFull" class="menu-font">
+                    <a routerLink="/logout">Logout</a>
+                </span>               
+
+                <!-- <app-horizontal-menu *ngIf="logined && showHorizontalMenu"  [menuItems]="menuItemsLogined"></app-horizontal-menu>
+                <app-horizontal-menu *ngIf="!logined && showHorizontalMenu"  [menuItems]="menuItemsLogoff"></app-horizontal-menu> -->
+            </div>
+        </div>
+
+        <div class="horizontal-menu-outer" *ngIf="!showHorizontalMenu && showFull && !bAdmin">
+            <app-vertical-menu *ngIf="logined"  [menuItems]="menuItemsLogined"></app-vertical-menu>
+            <app-vertical-menu *ngIf="!logined"  [menuItems]="menuItemsLogoff"></app-vertical-menu>
+        </div>        
+    </div>
+</nav>

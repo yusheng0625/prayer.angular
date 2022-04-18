@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center align-items-center w-100 h-100 ">
+    <div class="col-xl-3 col-md-4 col-11">
+        <div class="card">
+            <div class="card-body  text-center">
+                <h2 class="mb-2" style="color: #00bbd3;">Give A Minimum of $5 to Get Your Prayer Seed</h2>                
+                <div>
+                    <img id="img_seed" src="../../../assets/img/app/seed.png"/>
+                </div>
+                <label class="mt-2 mb-2"><b style="color: #00bbd3;">What is your Prayer?</b></label>
+                <textarea class="form-control" [(ngModel)]="prayer"  rows="8" 
+                    [placeholder]="placeholder"
+                    (focus)="onFocus()"  (focusout)="onFocusOut()"></textarea>
+
+                <div *ngIf="bError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Please input your Prayer.
+                </div>                
+                <button class="btn btn-info btn-block  mt-4" (click)="onBuySeed()">Give Now</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<h4 class="ml-4 mt-4">Video Management</h4>
+
+<div class="row p-4">
+    <div class="col-md-7">
+        <div class="table-responsive bg-white box-shadow">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th> 
+                        <th>Link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let video of videos | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <td class="align-middle text-truncate">{{video.Id}}</td>
+                        <td class="align-middle text-truncate">{{video.link}}</td>
+                        <td class="align-middle">
+                            <a href="javascript:" (click)="onEdit(video.Id)"><i class="fa fa-pencil mr-2 text-info"></i></a>
+                            <a href="javascript:" (click)="onRemove(video.Id)"><i class="fa fa-trash mr-2 text-danger"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div calss="card">
+            <div class="card-header">
+                <h4> Edit Video</h4>                
+            </div>
+            <div class="card-body">
+                <label>Link</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Enter link..." [(ngModel)]="editinglink" type="text"><span class="input-group-append"><button class="btn btn-info" type="button" (click)="link=editinglink;">Go!</button></span>
+                    </div>
+                </div>
+
+                <div class="row mt-2 mb-2">
+                    <div class="col-md-6 text-center">
+                        <button *ngIf="editinglink!='' && id!=-1" class="btn btn-info btn-block" (click)="onSave();">Save</button>
+                        <button *ngIf="editinglink!='' && id==-1" class="btn btn-info btn-block" (click)="onAddNew();">Add New</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <button *ngIf="editinglink!='' || id!=-1" class="btn btn-danger btn-block" (click)="id=-1;link='';editinglink='';">Clear</button>
+                    </div>
+                </div>  
+
+                <iframe class="w-100" style="min-height: calc(50vh);" [src]="link | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>         
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white text-center">
+            <pagination-controls autoHide="true" (pageChange)="p = $event" maxSize="3"></pagination-controls>
+        </div>        
+    </div>
+</div>

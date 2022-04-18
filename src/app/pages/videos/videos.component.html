@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white text-center page-font">
+            <pagination-controls autoHide="true" (pageChange)="p = $event" maxSize="3"></pagination-controls>
+        </div>        
+    </div>
+</div>
+
+<div class="row p-4">
+    <div *ngFor="let v of videos | paginate: { itemsPerPage: 4, currentPage: p }; let i = index;" class="col-md-6 mb-4">
+        <iframe class="w-100" style="min-height: calc(50vh);" [src]="v | safe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="bg-white text-center page-font">
+            <pagination-controls autoHide="true" (pageChange)="p = $event" maxSize="3"></pagination-controls>
+        </div>        
+    </div>
+</div>

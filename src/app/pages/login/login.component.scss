@@ -1,0 +1,37 @@
+@media (min-width: 768px){
+    .login-container{
+        // position: absolute;
+        h2{
+            font-size: 2rem;
+        }
+        .card{
+            .card-header{
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                margin-top: -40px;
+                border-radius: 50%;
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .login-container{
+        // position: absolute;
+        h2{
+            font-size: 1.4rem;
+        }
+        .card{
+            .card-header{
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                margin-top: -40px;
+                border-radius: 50%;
+                font-size: 36px;
+            }
+        }
+    }
+}
